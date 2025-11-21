@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Content</title>
+</head>
+<body>
+    <h1 th:text="${exam.title}">Exam Title</h1>
+    <p><strong>Course ID:</strong> <span th:text="${exam.courseId}"></span></p>
+    <div>
+        <h2>Questions</h2>
+        <ul>
+            <li th:each="question : ${exam.questions}">
+                <strong th:text="${question.text}"></strong>
+                <ul>
+                    <li th:each="option : ${question.options}">
+                        <span th:text="${option.text}"></span>
+                        <span th:if="${option.isCorrect}" style="color: green;">(Correct)</span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
