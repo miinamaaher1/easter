@@ -57,6 +57,7 @@ public class QuestionBankService {
                 setId(savedQuestionWithOptions.getId());
                 setText(savedQuestionWithOptions.getText());
                 setCourseId(savedQuestionWithOptions.getCourse().getId());
+                setOptions(new ArrayList<>());
                 setOptions(savedQuestionWithOptions.getOptions().stream().map(option -> {
                     var opt = new OptionDto();
                     opt.setId(option.getId());

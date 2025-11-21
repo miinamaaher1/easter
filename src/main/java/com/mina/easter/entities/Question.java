@@ -1,9 +1,7 @@
 package com.mina.easter.entities;
 
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
@@ -28,7 +26,7 @@ public class Question {
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @JsonManagedReference
-    private Set<Option> options = new LinkedHashSet<>();
+    private List<Option> options = new ArrayList<>();
 
     @ManyToMany(mappedBy = "questions")
     private List<Exam> exams = new ArrayList<>();
